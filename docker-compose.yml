@@ -1,0 +1,31 @@
+services:
+  database:
+    image: mysql:8.3
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - kimai-mysql:/var/lib/mysql
+
+  kimai:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      DATABASE_URL: mysql://${DB_USER}:${DB_PASSWORD}@database:3306/${DB_NAME}?charset=utf8mb4&serverVersion=8.3
+      APP_ENV: dev
+      APP_SECRET: ${APP_SECRET}
+      ADMINMAIL: ${ADMIN_MAIL}
+      ADMINPASS: ${ADMIN_PASS}
+    ports:
+      - "8001:8001"
+    depends_on:
+      - database
+    volumes:
+      - kimai-var:/opt/kimai/var
+
+volumes:
+  kimai-mysql:
+  kimai-var:

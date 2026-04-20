@@ -65,3 +65,7 @@ yarn-error.log
 /nbproject/*
 
 .dockerhub.secrets
+
+# Archivos de desarrollo local
+Dockerfile.prod
+CLAUDE.md
