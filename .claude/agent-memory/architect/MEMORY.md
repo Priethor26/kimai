@@ -1,0 +1,2 @@
+- [User role and language](user_role.md) — Spanish-speaking developer working on Kimai organizational-structure feature
+- [Division/Coordinacion feature scope](project_division_coordinacion.md) — ongoing feature on branch feature/division-proyecto

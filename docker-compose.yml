@@ -24,6 +24,7 @@ services:
     depends_on:
       - database
     volumes:
+      - .:/opt/kimai
       - kimai-var:/opt/kimai/var
 
 volumes:

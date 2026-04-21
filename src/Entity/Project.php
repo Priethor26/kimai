@@ -11,6 +11,7 @@ namespace App\Entity;
 
 use App\Doctrine\Behavior\CreatedAt;
 use App\Doctrine\Behavior\CreatedTrait;
+use App\Entity\Coordinacion;
 use App\Export\Annotation as Exporter;
 use App\Repository\ProjectRepository;
 use App\Validator\Constraints as Constraints;
@@ -177,6 +178,9 @@ class Project implements EntityWithMetaFields, EntityWithBudget, CreatedAt
     #[Serializer\Groups(['Default'])]
     #[Exporter\Expose(label: 'project_number')]
     private ?string $number = null;
+    #[ORM\ManyToOne(targetEntity: Coordinacion::class)]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
+    private ?Coordinacion $coordinacion = null;
 
     public function __construct()
     {
@@ -474,6 +478,18 @@ class Project implements EntityWithMetaFields, EntityWithBudget, CreatedAt
     public function getNumber(): ?string
     {
         return $this->number;
+    }
+
+    public function getCoordinacion(): ?Coordinacion
+    {
+        return $this->coordinacion;
+    }
+
+    public function setCoordinacion(?Coordinacion $coordinacion): static
+    {
+        $this->coordinacion = $coordinacion;
+
+        return $this;
     }
 
     public function __toString(): string
