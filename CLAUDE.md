@@ -144,7 +144,7 @@ Agrega jerarquía: Director → División → Coordinación → Proyecto
 ### Estado actual
 - [x] Spec creado: spec/01_organizacion_divisiones.md
 - [x] Agentes definidos: architect.md, developer.md
-- [ ] Phase 1 — Entities, Repositories & Migration (8h)
+- [x] Phase 1 — Entities, Repositories & Migration (8h)
 - [ ] Phase 2 — Permissions, Voters & Role Hierarchy (6h)
 - [ ] Phase 3 — Division Admin CRUD (10h)
 - [ ] Phase 4 — Coordinacion Admin CRUD (8h)
